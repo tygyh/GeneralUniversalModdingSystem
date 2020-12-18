@@ -1,0 +1,24 @@
+﻿using GeneralUniversalModdingSystem;
+using NUnit.Framework;
+
+namespace GUMSTests
+{
+    [TestFixture]
+    public class Tests
+    {
+        [Test]
+        public void SemVerToString()
+        {
+            Assert.AreEqual(
+                "1.2.3-pre1+build2048",
+                new SemVer
+                {
+                    Major = 1,
+                    Minor = 2,
+                    Patch = 3,
+                    PreRelease = "pre1",
+                    Build = "build2048",
+                }.ToString());
+        }
+    }
+}
