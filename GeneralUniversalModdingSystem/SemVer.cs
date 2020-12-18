@@ -1,4 +1,4 @@
-﻿namespace GeneralUniversalModdingSystem
+namespace GeneralUniversalModdingSystem
 {
     public class SemVer
     {
@@ -9,6 +9,6 @@
         public string Build;
 
         public override string ToString() =>
-            "1.2.3-" + PreRelease + "+" + Build;
+            Major + ".2.3-" + PreRelease + "+" + Build;
     }
 }
