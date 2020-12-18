@@ -9,6 +9,8 @@ namespace GeneralUniversalModdingSystem
         public string Build;
 
         public override string ToString() =>
-            Major + "." + Minor + "." + Patch + "-" + PreRelease + "+" + Build;
+            Major + "." + Minor + "." + Patch +
+            (string.IsNullOrEmpty(PreRelease) ? "" : "-" + PreRelease) +
+            "+" + Build;
     }
 }
