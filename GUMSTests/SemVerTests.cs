@@ -65,5 +65,20 @@ namespace GUMSTests
                     Build = "build2048"
                 }.ToString());
         }
+        
+        [Test]
+        public void SemVerToStringAltMinor()
+        {
+            Assert.AreEqual(
+                "1.1.3-pre1+build2048",
+                new SemVer
+                {
+                    Major = 1,
+                    Minor = 1,
+                    Patch = 3,
+                    PreRelease = "pre1",
+                    Build = "build2048"
+                }.ToString());
+        }
     }
 }

@@ -9,6 +9,6 @@ namespace GeneralUniversalModdingSystem
         public string Build;
 
         public override string ToString() =>
-            Major + ".2.3-" + PreRelease + "+" + Build;
+            Major + "." + Minor + ".3-" + PreRelease + "+" + Build;
     }
 }
