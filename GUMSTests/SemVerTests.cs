@@ -35,5 +35,20 @@ namespace GUMSTests
                     Build = "phuild2048"
                 }.ToString());
         }
+        
+        [Test]
+        public void SemVerToStringAltPreRelease()
+        {
+            Assert.AreEqual(
+                "1.2.3-ree1+build2048",
+                new SemVer
+                {
+                    Major = 1,
+                    Minor = 2,
+                    Patch = 3,
+                    PreRelease = "ree1",
+                    Build = "build2048"
+                }.ToString());
+        }
     }
 }
