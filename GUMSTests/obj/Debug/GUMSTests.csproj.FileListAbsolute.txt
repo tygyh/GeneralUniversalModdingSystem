@@ -1,0 +1,14 @@
+C:\Users\Jonathan\RiderProjects\GeneralUniversalModdingSystem\GUMSTests\obj\Debug\GUMSTests.csprojAssemblyReference.cache
+C:\Users\Jonathan\RiderProjects\GeneralUniversalModdingSystem\GUMSTests\obj\Debug\GUMSTests.csproj.CoreCompileInputs.cache
+C:\Users\Jonathan\RiderProjects\GeneralUniversalModdingSystem\GUMSTests\bin\Debug\GUMSTests.dll
+C:\Users\Jonathan\RiderProjects\GeneralUniversalModdingSystem\GUMSTests\bin\Debug\GUMSTests.pdb
+C:\Users\Jonathan\RiderProjects\GeneralUniversalModdingSystem\GUMSTests\bin\Debug\GeneralUniversalModdingSystem.dll
+C:\Users\Jonathan\RiderProjects\GeneralUniversalModdingSystem\GUMSTests\bin\Debug\nunit.framework.dll
+C:\Users\Jonathan\RiderProjects\GeneralUniversalModdingSystem\GUMSTests\bin\Debug\MoonSharp.Interpreter.dll
+C:\Users\Jonathan\RiderProjects\GeneralUniversalModdingSystem\GUMSTests\bin\Debug\GeneralUniversalModdingSystem.pdb
+C:\Users\Jonathan\RiderProjects\GeneralUniversalModdingSystem\GUMSTests\bin\Debug\nunit.framework.xml
+C:\Users\Jonathan\RiderProjects\GeneralUniversalModdingSystem\GUMSTests\bin\Debug\MoonSharp.Interpreter.pdb
+C:\Users\Jonathan\RiderProjects\GeneralUniversalModdingSystem\GUMSTests\bin\Debug\MoonSharp.Interpreter.xml
+C:\Users\Jonathan\RiderProjects\GeneralUniversalModdingSystem\GUMSTests\obj\Debug\GUMSTests.csproj.CopyComplete
+C:\Users\Jonathan\RiderProjects\GeneralUniversalModdingSystem\GUMSTests\obj\Debug\GUMSTests.dll
+C:\Users\Jonathan\RiderProjects\GeneralUniversalModdingSystem\GUMSTests\obj\Debug\GUMSTests.pdb

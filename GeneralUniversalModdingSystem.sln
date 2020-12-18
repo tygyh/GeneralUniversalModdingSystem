@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneralUniversalModdingSystem", "GeneralUniversalModdingSystem\GeneralUniversalModdingSystem.csproj", "{119BAF94-88CD-437E-B0A1-8A3CDF2A3B54}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUMSTests", "GUMSTests\GUMSTests.csproj", "{BB7456DA-2BF5-4C53-B482-25216D0FA4EB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{119BAF94-88CD-437E-B0A1-8A3CDF2A3B54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{119BAF94-88CD-437E-B0A1-8A3CDF2A3B54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{119BAF94-88CD-437E-B0A1-8A3CDF2A3B54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{119BAF94-88CD-437E-B0A1-8A3CDF2A3B54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB7456DA-2BF5-4C53-B482-25216D0FA4EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB7456DA-2BF5-4C53-B482-25216D0FA4EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB7456DA-2BF5-4C53-B482-25216D0FA4EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB7456DA-2BF5-4C53-B482-25216D0FA4EB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
