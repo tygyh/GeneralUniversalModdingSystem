@@ -6,7 +6,6 @@
     <e p="C:\Users\Jonathan\RiderProjects\GeneralUniversalModdingSystem" t="IncludeFlat">
       <e p="GeneralUniversalModdingSystem" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
-        <e p="Class1.cs" t="Include" />
         <e p="GeneralUniversalModdingSystem.csproj" t="IncludeRecursive" />
         <e p="IAssetLoader.cs" t="Include" />
         <e p="IFileLoader.cs" t="Include" />

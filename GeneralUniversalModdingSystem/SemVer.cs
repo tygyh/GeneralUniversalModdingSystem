@@ -8,6 +8,6 @@
         public string PreRelease;
         public string Build;
 
-        public override string ToString() => "1.2.3-pre1+build2048";
+        public override string ToString() => "1.2.3-pre1+" + Build;
     }
 }
