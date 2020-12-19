@@ -107,6 +107,14 @@ namespace GUMSTests
                 }.ToString());
         }
 
+        [Test]
+        public void SemVerToStringNoBuild()
+        {
+            Assert.AreEqual(
+                "1.2.3-pre123",
+                new SemVer
+                {
+                    Major = 1, Minor = 2, Patch = 3, PreRelease = "pre123"
                 }.ToString());
         }
     }
