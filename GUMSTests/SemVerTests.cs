@@ -125,15 +125,21 @@ namespace GUMSTests
         #region FromString
 
         [Test]
-        public void FromString()
+        public void FromString(
+            [Values(1,2)]int major,
+            [Values(2,3)]int minor,
+            [Values(3,4)]int patch,
+            [Values("pre1","pre2")]string preRelease,
+            [Values("build2048","build4096")]string build)
         {
-            SemVer semVer = new SemVer("1.2.3-pre1+build2048");
+            SemVer semVer = new SemVer(
+                $"{major}.{minor}.{patch}-{preRelease}+{build}");
             
-            Assert.AreEqual(semVer.Major, 1);
-            Assert.AreEqual(semVer.Minor, 2);
-            Assert.AreEqual(semVer.Patch, 3);
-            Assert.AreEqual(semVer.PreRelease, "pre1");
-            Assert.AreEqual(semVer.Build, "build2048");
+            Assert.AreEqual(semVer.Major, major);
+            Assert.AreEqual(semVer.Minor, minor);
+            Assert.AreEqual(semVer.Patch, patch);
+            Assert.AreEqual(semVer.PreRelease, preRelease);
+            Assert.AreEqual(semVer.Build, build);
         }
 
         #endregion
