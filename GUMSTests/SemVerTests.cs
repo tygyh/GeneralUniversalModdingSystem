@@ -6,6 +6,8 @@ namespace GUMSTests
     [TestFixture]
     public class Tests
     {
+        #region ToString
+        
         [Test]
         public void SemVerToString()
         {
@@ -117,5 +119,7 @@ namespace GUMSTests
                     Major = 1, Minor = 2, Patch = 3, PreRelease = "pre123"
                 }.ToString());
         }
+
+        #endregion
     }
 }
