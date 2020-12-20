@@ -9,92 +9,22 @@ namespace GUMSTests
         #region ToString
         
         [Test]
-        public void SemVerToString()
+        public void SemVerToString(
+            [Values(1,6)]int major,
+            [Values(2,1)]int minor,
+            [Values(3,4)]int patch,
+            [Values("pre1","ree1")]string preRelease,
+            [Values("build2048","phuild2048")]string build)
         {
             Assert.AreEqual(
-                "1.2.3-pre1+build2048",
+                $"{major}.{minor}.{patch}-{preRelease}+{build}",
                 new SemVer
                 {
-                    Major = 1,
-                    Minor = 2,
-                    Patch = 3,
-                    PreRelease = "pre1",
-                    Build = "build2048"
-                }.ToString());
-        }
-
-        [Test]
-        public void SemVerToStringAltBuild()
-        {
-            Assert.AreEqual(
-                "1.2.3-pre1+phuild2048",
-                new SemVer
-                {
-                    Major = 1,
-                    Minor = 2,
-                    Patch = 3,
-                    PreRelease = "pre1",
-                    Build = "phuild2048"
-                }.ToString());
-        }
-        
-        [Test]
-        public void SemVerToStringAltPreRelease()
-        {
-            Assert.AreEqual(
-                "1.2.3-ree1+build2048",
-                new SemVer
-                {
-                    Major = 1,
-                    Minor = 2,
-                    Patch = 3,
-                    PreRelease = "ree1",
-                    Build = "build2048"
-                }.ToString());
-        }
-        
-        [Test]
-        public void SemVerToStringAltMajor()
-        {
-            Assert.AreEqual(
-                "6.2.3-pre1+build2048",
-                new SemVer
-                {
-                    Major = 6,
-                    Minor = 2,
-                    Patch = 3,
-                    PreRelease = "pre1",
-                    Build = "build2048"
-                }.ToString());
-        }
-        
-        [Test]
-        public void SemVerToStringAltMinor()
-        {
-            Assert.AreEqual(
-                "1.1.3-pre1+build2048",
-                new SemVer
-                {
-                    Major = 1,
-                    Minor = 1,
-                    Patch = 3,
-                    PreRelease = "pre1",
-                    Build = "build2048"
-                }.ToString());
-        }
-        
-        [Test]
-        public void SemVerToStringAltPatch()
-        {
-            Assert.AreEqual(
-                "1.2.4-pre1+build2048",
-                new SemVer
-                {
-                    Major = 1,
-                    Minor = 2,
-                    Patch = 4,
-                    PreRelease = "pre1",
-                    Build = "build2048"
+                    Major = major,
+                    Minor = minor,
+                    Patch = patch,
+                    PreRelease = preRelease,
+                    Build = build
                 }.ToString());
         }
         
