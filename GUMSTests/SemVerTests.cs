@@ -121,5 +121,21 @@ namespace GUMSTests
         }
 
         #endregion
+
+        #region FromString
+
+        [Test]
+        public void FromString()
+        {
+            SemVer semVer = new SemVer("1.2.3-pre1+build2048");
+            
+            Assert.AreEqual(semVer.Major, 1);
+            Assert.AreEqual(semVer.Minor, 2);
+            Assert.AreEqual(semVer.Patch, 3);
+            Assert.AreEqual(semVer.PreRelease, "pre1");
+            Assert.AreEqual(semVer.Build, "build2048");
+        }
+
+        #endregion
     }
 }
