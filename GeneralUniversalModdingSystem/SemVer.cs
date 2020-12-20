@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 
 namespace GeneralUniversalModdingSystem
 {
@@ -19,11 +20,14 @@ namespace GeneralUniversalModdingSystem
 
         public SemVer(string version)
         {
-            Major = Convert.ToInt32(version.Substring(0,1));
-            Minor = Convert.ToInt32(version.Substring(2,1));
-            Patch = Convert.ToInt32(version.Substring(4,1));
-            PreRelease = version.Substring(6,4);
-            Build = version.Substring(11,9);
+            string[] splits = version.Split('.');
+            string[] splitsHyphen = splits[2].Split('-');
+            string[] splitsPlus = splitsHyphen.Last().Split('+');
+            Major = Convert.ToInt32(splits[0]);
+            Minor = Convert.ToInt32(splits[1]);
+            Patch = Convert.ToInt32(splitsHyphen[0]);
+            PreRelease = splitsPlus[0];
+            Build = splitsPlus[1];
         }
     }
 }

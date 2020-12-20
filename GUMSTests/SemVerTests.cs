@@ -56,9 +56,9 @@ namespace GUMSTests
 
         [Test]
         public void FromString(
-            [Values(1,2)]int major,
-            [Values(2,3)]int minor,
-            [Values(3,4)]int patch,
+            [Values(1,2,12)]int major,
+            [Values(2,3,23)]int minor,
+            [Values(3,4,34)]int patch,
             [Values("pre1","pre2")]string preRelease,
             [Values("build2048","build4096")]string build)
         {
