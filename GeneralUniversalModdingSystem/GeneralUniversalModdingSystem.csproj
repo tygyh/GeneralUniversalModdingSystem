@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
     <PropertyGroup>
@@ -37,6 +37,10 @@
           <HintPath>..\packages\MoonSharp.2.0.0.0\lib\net40-client\MoonSharp.Interpreter.dll</HintPath>
           <Private>True</Private>
         </Reference>
+        <Reference Include="SemanticVersion, Version=2.1.0.0, Culture=neutral, PublicKeyToken=cf3d9de2a6c185ee">
+          <HintPath>..\packages\SemanticVersion.2.1.0\lib\net462\SemanticVersion.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
         <Reference Include="System" />
         <Reference Include="System.Core" />
         <Reference Include="System.Data" />
@@ -47,7 +51,6 @@
         <Compile Include="IFileLoader.cs" />
         <Compile Include="IMod.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
-        <Compile Include="SemVer.cs" />
     </ItemGroup>
     <ItemGroup>
       <None Include="packages.config" />
