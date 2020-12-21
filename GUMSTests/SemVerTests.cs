@@ -62,7 +62,7 @@ namespace GUMSTests
             [Values("pre1","pre2")]string preRelease,
             [Values("build2048","build4096")]string build)
         {
-            SemVer semVer = new SemVer(
+            SemVer semVer = SemVer.RegexExperiment(
                 $"{major}.{minor}.{patch}-{preRelease}+{build}");
             
             Assert.AreEqual(semVer.Major, major);
