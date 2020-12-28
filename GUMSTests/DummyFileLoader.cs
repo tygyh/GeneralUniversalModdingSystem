@@ -18,12 +18,28 @@ namespace GUMSTests
         public Task<string> LoadStringAt(string path)
         {
             string[] pathSegments = path.Split('/');
-            string folder = pathSegments[0];
-
             return Task.Run(
-                () => pathSegments.Length == 2 ?
-                    ((Dictionary<string, string>)Files[folder])[pathSegments[1]] :
-                    Files[path] as string);
+                () =>
+                {
+                    switch (pathSegments.Length)
+                    {
+                        case 3:
+                            return
+                                ((Dictionary<string, object>)
+                                    ((Dictionary<string, object>)
+                                        Files[pathSegments[0]])
+                                    [pathSegments[1]])
+                                [pathSegments[2]] as string;
+                        case 2:
+                            return
+                                ((Dictionary<string, object>)
+                                    Files[pathSegments[0]])
+                                [pathSegments[1]] as string;
+                        default: 
+                            return
+                                Files[path] as string;
+                    }
+                });
         }
     }
 }

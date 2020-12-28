@@ -43,5 +43,13 @@ namespace GUMSTests
                 "the letter b",
                 await dummyFileLoader.LoadStringAt("a/b.txt"));
         }
+
+        [Test]
+        public async Task LoadsStringAtPathFolderInFolder()
+        {
+            Assert.AreEqual(
+                "the letter c",
+                await dummyFileLoader.LoadStringAt("a/b/c.txt"));
+        }
     }
 }
