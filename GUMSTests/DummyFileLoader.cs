@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using GeneralUniversalModdingSystem;
 
@@ -15,31 +16,12 @@ namespace GUMSTests
         public Task<byte[]> LoadAt(string path) =>
             throw new System.NotImplementedException();
 
-        public Task<string> LoadStringAt(string path)
-        {
-            string[] pathSegments = path.Split('/');
-            return Task.Run(
-                () =>
-                {
-                    switch (pathSegments.Length)
-                    {
-                        case 3:
-                            return
-                                ((Dictionary<string, object>)
-                                    ((Dictionary<string, object>)
-                                        Files[pathSegments[0]])
-                                    [pathSegments[1]])
-                                [pathSegments[2]] as string;
-                        case 2:
-                            return
-                                ((Dictionary<string, object>)
-                                    Files[pathSegments[0]])
-                                [pathSegments[1]] as string;
-                        default: 
-                            return
-                                Files[path] as string;
-                    }
-                });
-        }
+        public Task<string> LoadStringAt(string path) =>
+            Task.Run(
+                () => path.Split('/').Aggregate<string, object>(
+                    Files,
+                    (currentFile, key) =>
+                        ((Dictionary<string, object>)currentFile)
+                        [key]) as string);
     }
 }

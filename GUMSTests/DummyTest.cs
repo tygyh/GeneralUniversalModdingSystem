@@ -20,6 +20,11 @@ namespace GUMSTests
                     {
                         ["b"] = new Dictionary<string, object>
                         {
+                            ["c"] = new Dictionary<string, object>
+                            {
+                            
+                                ["d.txt"] = "the letter d"
+                            },
                             ["c.txt"] = "the letter c"
                         },
                         ["b.txt"] = "the letter b"
@@ -50,6 +55,14 @@ namespace GUMSTests
             Assert.AreEqual(
                 "the letter c",
                 await dummyFileLoader.LoadStringAt("a/b/c.txt"));
+        }
+
+        [Test]
+        public async Task LoadsStringAtPath3FolderLevelsDeep()
+        {
+            Assert.AreEqual(
+                "the letter d",
+                await dummyFileLoader.LoadStringAt("a/b/c/d.txt"));
         }
     }
 }
