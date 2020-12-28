@@ -15,7 +15,15 @@ namespace GUMSTests
         public Task<byte[]> LoadAt(string path) =>
             throw new System.NotImplementedException();
 
-        public Task<string> LoadStringAt(string path) =>
-            Task.Run(() => Files[path] as string);
+        public Task<string> LoadStringAt(string path)
+        {
+            string[] pathSegments = path.Split('/');
+            string folder = pathSegments[0];
+
+            return Task.Run(
+                () => pathSegments.Length == 2 ?
+                    ((Dictionary<string, string>)Files[folder])[pathSegments[1]] :
+                    Files[path] as string);
+        }
     }
 }

@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using NUnit.Framework;
 
@@ -27,6 +27,8 @@ namespace GUMSTests
                 {
                     Files = {["a"] = new Dictionary<string,string> {["a.txt"] = "the letter a"}}
                 };
+            Assert.AreEqual(
+            "the letter a", await dummyFileLoader.LoadStringAt("a/a.txt"));
         }
     }
 }
