@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using NUnit.Framework;
 
 namespace GUMSTests
@@ -16,6 +17,16 @@ namespace GUMSTests
                 };
             Assert.AreEqual(
                 "the letter a", await dummyFileLoader.LoadStringAt("a.txt"));
+        }
+
+        [Test]
+        public async Task LoadsStringAtPath()
+        {
+            DummyFileLoader dummyFileLoader =
+                new DummyFileLoader("C:\\placeholder")
+                {
+                    Files = {["a"] = new Dictionary<string,string> {["a.txt"] = "the letter a"}}
+                };
         }
     }
 }
