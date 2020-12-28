@@ -7,14 +7,31 @@ namespace GUMSTests
     [TestFixture]
     public class DummyTest
     {
+        private DummyFileLoader dummyFileLoader;
+
+        [SetUp]
+        public void Init()
+        {
+            dummyFileLoader = new DummyFileLoader("C:\\placeholder")
+            {
+                Files =
+                {
+                    ["a"] = new Dictionary<string, object>
+                    {
+                        ["b"] = new Dictionary<string, object>
+                        {
+                            ["c.txt"] = "the letter c"
+                        },
+                        ["b.txt"] = "the letter b"
+                    },
+                    ["a.txt"] = "the letter a"
+                }
+            };
+        }
+
         [Test]
         public async Task LoadsStringAtImmediate()
         {
-            DummyFileLoader dummyFileLoader =
-                new DummyFileLoader("C:\\placeholder")
-                {
-                    Files = {["a.txt"] = "the letter a"}
-                };
             Assert.AreEqual(
                 "the letter a", await dummyFileLoader.LoadStringAt("a.txt"));
         }
@@ -22,13 +39,9 @@ namespace GUMSTests
         [Test]
         public async Task LoadsStringAtPath()
         {
-            DummyFileLoader dummyFileLoader =
-                new DummyFileLoader("C:\\placeholder")
-                {
-                    Files = {["a"] = new Dictionary<string,string> {["a.txt"] = "the letter a"}}
-                };
             Assert.AreEqual(
-            "the letter a", await dummyFileLoader.LoadStringAt("a/a.txt"));
+                "the letter b",
+                await dummyFileLoader.LoadStringAt("a/b.txt"));
         }
     }
 }
