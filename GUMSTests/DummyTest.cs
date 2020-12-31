@@ -6,7 +6,7 @@ using NUnit.Framework;
 namespace GUMSTests
 {
     [TestFixture]
-    public class DummyTest
+    public class DummyLoadingTest
     {
         private DummyFileLoader dummyFileLoader;
 
