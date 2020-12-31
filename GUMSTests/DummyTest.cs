@@ -16,6 +16,16 @@ namespace GUMSTests
             dummyFileLoader = new DummyFileLoader("C:\\placeholder");
         }
 
+        [Test]
+        public async Task InsertFileToRoot(
+            [Values("a", "b", "a/b", "b/c", "d/a")]
+            string fileName,
+            [Values("ahh", "nahh", "wahh")] string fileContents)
+        {
+            dummyFileLoader.InsertAt(fileName, fileContents);
+            Assert.AreEqual(
+                fileContents, await dummyFileLoader.LoadStringAt(fileName));
+        }
     }
 
     [TestFixture]

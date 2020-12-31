@@ -1,3 +1,4 @@
+using System;
 using System.Text;
 using System.Threading.Tasks;
 using GeneralUniversalModdingSystem;
@@ -34,5 +35,24 @@ namespace GUMSTests
             fileContents is byte[] bytes ?
                 Encoding.Default.GetString(bytes) :
                 fileContents as string;
+
+        public void InsertAt(string path, object contents)
+        {
+            object current = Files;
+            string[] segments = path.Split('/');
+
+            foreach (string part in new ArraySegment<string>(
+                segments, 0, segments.Length - 1))
+                if (current is DummyDirectory dir)
+                {
+                    if (!dir.ContainsKey(part))
+                        dir[part] = new DummyDirectory();
+                    current = dir[part];
+                }
+                else
+                    throw new NotImplementedException();
+
+            ((DummyDirectory)current)[segments[segments.Length - 1]] = contents;
+        }
     }
 }
