@@ -23,5 +23,8 @@ namespace GUMSTests
                     (currentFile, key) =>
                         ((Dictionary<string, object>)currentFile)
                         [key]) as string);
+
+        private static byte[] ConvertFileToBytes(object fileContents) =>
+            fileContents as byte[];
     }
 }
