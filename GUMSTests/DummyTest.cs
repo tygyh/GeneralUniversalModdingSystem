@@ -8,6 +8,14 @@ namespace GUMSTests
     [TestFixture]
     public class DummyAddingTest
     {
+        private DummyFileLoader dummyFileLoader;
+
+        [SetUp]
+        public void Init()
+        {
+            dummyFileLoader = new DummyFileLoader("C:\\placeholder");
+        }
+
     }
 
     [TestFixture]
