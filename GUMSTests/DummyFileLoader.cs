@@ -1,5 +1,4 @@
-using System.Collections.Generic;
-using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using GeneralUniversalModdingSystem;
 using DummyDirectory = System.Collections.Generic.Dictionary<string, object>;
@@ -32,6 +31,8 @@ namespace GUMSTests
             fileContents as byte[];
 
         private static string ConvertFileToString(object fileContents) =>
-            fileContents as string;
+            fileContents is byte[] bytes ?
+                Encoding.Default.GetString(bytes) :
+                fileContents as string;
     }
 }

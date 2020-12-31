@@ -27,23 +27,23 @@ namespace GUMSTests
                                     ["d.txt"] =
                                         "the letter d",
                                     ["d.bin"] =
-                                        Encoding.Unicode.
+                                        Encoding.Default.
                                             GetBytes(
                                                 "the letter d")
                                 },
                             ["c.txt"] = "the letter c",
                             ["c.bin"] =
-                                Encoding.Unicode.GetBytes(
+                                Encoding.Default.GetBytes(
                                     "the letter c")
                         },
                         ["b.txt"] = "the letter b",
                         ["b.bin"] =
-                            Encoding.Unicode.GetBytes(
+                            Encoding.Default.GetBytes(
                                 "the letter b")
                     },
                     ["a.txt"] = "the letter a",
                     ["a.bin"] =
-                        Encoding.Unicode.GetBytes("the letter a")
+                        Encoding.Default.GetBytes("the letter a")
                 }
             };
         }
@@ -78,5 +78,13 @@ namespace GUMSTests
                 "the letter d",
                 await dummyFileLoader.LoadStringAt("a/b/c/d.txt"));
         }
+        
+        [Test]
+        public async Task LoadStringFromBin()
+        {
+            Assert.AreEqual(
+                "the letter a",
+                await dummyFileLoader.LoadStringAt("a.bin"));
+        }        
     }
 }
