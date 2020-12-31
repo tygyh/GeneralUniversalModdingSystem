@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 
@@ -20,16 +21,29 @@ namespace GUMSTests
                     {
                         ["b"] = new Dictionary<string, object>
                         {
-                            ["c"] = new Dictionary<string, object>
-                            {
-                            
-                                ["d.txt"] = "the letter d"
-                            },
-                            ["c.txt"] = "the letter c"
+                            ["c"] =
+                                new Dictionary<string, object>
+                                {
+                                    ["d.txt"] =
+                                        "the letter d",
+                                    ["d.bin"] =
+                                        Encoding.Unicode.
+                                            GetBytes(
+                                                "the letter d")
+                                },
+                            ["c.txt"] = "the letter c",
+                            ["c.bin"] =
+                                Encoding.Unicode.GetBytes(
+                                    "the letter c")
                         },
-                        ["b.txt"] = "the letter b"
+                        ["b.txt"] = "the letter b",
+                        ["b.bin"] =
+                            Encoding.Unicode.GetBytes(
+                                "the letter b")
                     },
-                    ["a.txt"] = "the letter a"
+                    ["a.txt"] = "the letter a",
+                    ["a.bin"] =
+                        Encoding.Unicode.GetBytes("the letter a")
                 }
             };
         }

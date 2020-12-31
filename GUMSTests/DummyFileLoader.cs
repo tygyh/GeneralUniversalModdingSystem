@@ -14,7 +14,7 @@ namespace GUMSTests
         public string BasePath {get;}
 
         public Task<byte[]> LoadAt(string path) =>
-            throw new System.NotImplementedException();
+            Task.Run(() => ConvertFileToBytes(TraverseFiles(path)));
 
         public Task<string> LoadStringAt(string path) =>
             Task.Run(
