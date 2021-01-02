@@ -29,7 +29,9 @@ namespace GUMSTests
                 () => ConvertFileToString(TraverseFiles(path)));
 
         private static byte[] ConvertFileToBytes(object fileContents) =>
-            fileContents as byte[];
+            fileContents is string s ?
+                Encoding.Default.GetBytes(s) :
+                fileContents as byte[];
 
         private static string ConvertFileToString(object fileContents) =>
             fileContents is byte[] bytes ?

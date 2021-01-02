@@ -109,5 +109,22 @@ namespace GUMSTests
                 "the letter a",
                 await dummyFileLoader.LoadStringAt("a.bin"));
         }        
+        
+        [Test]
+        public async Task LoadBinFromString()
+        {
+            Assert.AreEqual(
+                Encoding.Default.GetBytes("the letter a"),
+                await dummyFileLoader.LoadAt("a.bin"));
+            Assert.AreEqual(
+                Encoding.Default.GetBytes("the letter b"),
+                await dummyFileLoader.LoadAt("a/b.bin"));
+            Assert.AreEqual(
+                Encoding.Default.GetBytes("the letter c"),
+                await dummyFileLoader.LoadAt("a/b/c.bin"));
+            Assert.AreEqual(
+                Encoding.Default.GetBytes("the letter d"),
+                await dummyFileLoader.LoadAt("a/b/c/d.bin"));
+        }
     }
 }
