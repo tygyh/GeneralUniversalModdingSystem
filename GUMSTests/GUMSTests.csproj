@@ -46,7 +46,6 @@
     <ItemGroup>
         <Compile Include="DummyFileLoader.cs" />
         <Compile Include="DummyTest.cs" />
-        <Compile Include="TestGame.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
     <ItemGroup>
