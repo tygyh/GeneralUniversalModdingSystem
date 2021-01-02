@@ -4,3 +4,4 @@ GeneralUniversalModdingSystem/bin
 GeneralUniversalModdingSystem/obj
 .idea
 packages
+*.user
