@@ -23,7 +23,7 @@ namespace GUMSTests
         {
             object current = Files;
             foreach (string part in parts)
-                if (current is DummyDirectory dir)
+                if (current is DummyDirectory dir && dir.ContainsKey(part))
                     current = dir[part];
                 else
                     throw new FileAccessException();

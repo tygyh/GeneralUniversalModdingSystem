@@ -135,5 +135,16 @@ namespace GUMSTests
 
             Assert.ThrowsAsync<FileAccessException>(Erroneous);
         }
+
+        [Test]
+        public void ErroneousAccessNonExist()
+        {
+            async Task Erroneous()
+            {
+                await dummyFileLoader.LoadAt("b");
+            }
+
+            Assert.ThrowsAsync<FileAccessException>(Erroneous);
+        }
     }
 }
