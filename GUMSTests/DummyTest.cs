@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
@@ -26,6 +27,14 @@ namespace GUMSTests
             Assert.AreEqual(
                 fileContents, await dummyFileLoader.LoadStringAt(fileName));
         }
+        
+        [Test]  
+        public void ErroneousFileInsertion()  
+        {  
+            dummyFileLoader.InsertAt("a","a");  
+            Assert.Throws<DirectoryNotFoundException>(
+                () => dummyFileLoader.InsertAt("a/b", "b"));  
+        } 
     }
 
     [TestFixture]
