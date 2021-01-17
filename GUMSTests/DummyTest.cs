@@ -27,14 +27,14 @@ namespace GUMSTests
             Assert.AreEqual(
                 fileContents, await dummyFileLoader.LoadStringAt(fileName));
         }
-        
-        [Test]  
-        public void ErroneousFileInsertion()  
-        {  
-            dummyFileLoader.InsertAt("a","a");  
+
+        [Test]
+        public void ErroneousFileInsertion()
+        {
+            dummyFileLoader.InsertAt("a", "a");
             Assert.Throws<FileAccessException>(
-                () => dummyFileLoader.InsertAt("a/b", "b"));  
-        } 
+                () => dummyFileLoader.InsertAt("a/b", "b"));
+        }
     }
 
     [TestFixture]
@@ -107,7 +107,7 @@ namespace GUMSTests
             Assert.AreEqual(
                 "the letter d", await dummyFileLoader.LoadStringAt("a/b/c/d.bin"));
         }
-        
+
         [Test]
         public async Task LoadBinFromString()
         {
@@ -123,6 +123,17 @@ namespace GUMSTests
             Assert.AreEqual(
                 Encoding.Default.GetBytes("the letter d"),
                 await dummyFileLoader.LoadAt("a/b/c/d.bin"));
+        }
+
+        [Test]
+        public void ErroneousAccessFileAsFolder()
+        {
+            async Task Erroneous()
+            {
+                await dummyFileLoader.LoadAt("a.txt/a");
+            }
+
+            Assert.ThrowsAsync<FileAccessException>(Erroneous);
         }
     }
 }

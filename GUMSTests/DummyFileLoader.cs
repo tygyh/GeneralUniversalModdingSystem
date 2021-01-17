@@ -23,7 +23,10 @@ namespace GUMSTests
         {
             object current = Files;
             foreach (string part in parts)
-                current = ((DummyDirectory)current)[part];
+                if (current is DummyDirectory dir)
+                    current = dir[part];
+                else
+                    throw new FileAccessException();
             return current;
         }
 
