@@ -52,14 +52,19 @@ namespace GUMSTests
             foreach (string part in dictParts)
                 if (current is DummyDirectory dir)
                 {
-                    if (!dir.ContainsKey(part))
-                        dir[part] = new DummyDirectory();
+                    EnsureDictionary(dir, part);
                     current = dir[part];
                 }
                 else
                     throw new NotImplementedException();
 
             ((DummyDirectory)current)[segments[segments.Length - 1]] = contents;
+        }
+
+        private static void EnsureDictionary(DummyDirectory dir, string part)
+        {
+            if (!dir.ContainsKey(part))
+                dir[part] = new DummyDirectory();
         }
     }
 }
