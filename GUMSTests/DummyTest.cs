@@ -108,7 +108,13 @@ namespace GUMSTests
             Assert.AreEqual(
                 "the letter a",
                 await dummyFileLoader.LoadStringAt("a.bin"));
-        }        
+            Assert.AreEqual(
+                "the letter b", await dummyFileLoader.LoadStringAt("a/b.bin"));
+            Assert.AreEqual(
+                "the letter c", await dummyFileLoader.LoadStringAt("a/b/c.bin"));
+            Assert.AreEqual(
+                "the letter d", await dummyFileLoader.LoadStringAt("a/b/c/d.bin"));
+        }
         
         [Test]
         public async Task LoadBinFromString()
