@@ -55,59 +55,42 @@ namespace GUMSTests
                                                 "the letter d")
                                 },
                             ["c.txt"] = "the letter c",
-                            ["c.bin"] =
-                                Encoding.Default.GetBytes(
-                                    "the letter c")
+                            ["c.bin"] = Encoding.Default.GetBytes("the letter c")
                         },
                         ["b.txt"] = "the letter b",
-                        ["b.bin"] =
-                            Encoding.Default.GetBytes(
-                                "the letter b")
+                        ["b.bin"] = Encoding.Default.GetBytes("the letter b")
                     },
                     ["a.txt"] = "the letter a",
-                    ["a.bin"] =
-                        Encoding.Default.GetBytes("the letter a")
+                    ["a.bin"] = Encoding.Default.GetBytes("the letter a")
                 }
             };
         }
 
         [Test]
-        public async Task LoadsStringAtImmediate()
-        {
+        public async Task LoadsStringAtImmediate() =>
             Assert.AreEqual(
                 "the letter a", await dummyFileLoader.LoadStringAt("a.txt"));
-        }
 
         [Test]
-        public async Task LoadsStringAtPath()
-        {
+        public async Task LoadsStringAtPath() =>
             Assert.AreEqual(
-                "the letter b",
-                await dummyFileLoader.LoadStringAt("a/b.txt"));
-        }
+                "the letter b", await dummyFileLoader.LoadStringAt("a/b.txt"));
 
         [Test]
-        public async Task LoadsStringAtPathFolderInFolder()
-        {
+        public async Task LoadsStringAtPathFolderInFolder() =>
             Assert.AreEqual(
-                "the letter c",
-                await dummyFileLoader.LoadStringAt("a/b/c.txt"));
-        }
+                "the letter c", await dummyFileLoader.LoadStringAt("a/b/c.txt"));
 
         [Test]
-        public async Task LoadsStringAtPath3FolderLevelsDeep()
-        {
+        public async Task LoadsStringAtPath3FolderLevelsDeep() =>
             Assert.AreEqual(
-                "the letter d",
-                await dummyFileLoader.LoadStringAt("a/b/c/d.txt"));
-        }
-        
+                "the letter d", await dummyFileLoader.LoadStringAt("a/b/c/d.txt"));
+
         [Test]
         public async Task LoadStringFromBin()
         {
             Assert.AreEqual(
-                "the letter a",
-                await dummyFileLoader.LoadStringAt("a.bin"));
+                "the letter a", await dummyFileLoader.LoadStringAt("a.bin"));
             Assert.AreEqual(
                 "the letter b", await dummyFileLoader.LoadStringAt("a/b.bin"));
             Assert.AreEqual(
