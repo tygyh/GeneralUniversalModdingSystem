@@ -46,9 +46,10 @@ namespace GUMSTests
         {
             object current = Files;
             string[] segments = path.Split('/');
-
-            foreach (string part in new ArraySegment<string>(
-                segments, 0, segments.Length - 1))
+            ArraySegment<string> dictParts = new ArraySegment<string>(
+                segments, 0, segments.Length - 1);
+            
+            foreach (string part in dictParts)
                 if (current is DummyDirectory dir)
                 {
                     if (!dir.ContainsKey(part))
