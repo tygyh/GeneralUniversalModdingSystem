@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using GeneralUniversalModdingSystem;
@@ -53,12 +52,12 @@ namespace GUMSTests
                     current = dir[part];
                 }
                 else
-                    throw new DirectoryNotFoundException();
+                    throw new FileAccessException();
 
             if (current is DummyDirectory objects)
                 objects[segments[segments.Length - 1]] = contents;
             else
-                throw new DirectoryNotFoundException();
+                throw new FileAccessException();
         }
 
         private static void EnsureDictionary(DummyDirectory dir, string part)

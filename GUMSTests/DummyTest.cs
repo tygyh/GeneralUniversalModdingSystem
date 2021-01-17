@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using System.IO;
 using System.Text;
 using System.Threading.Tasks;
+using GeneralUniversalModdingSystem;
 using NUnit.Framework;
 
 namespace GUMSTests
@@ -32,7 +32,7 @@ namespace GUMSTests
         public void ErroneousFileInsertion()  
         {  
             dummyFileLoader.InsertAt("a","a");  
-            Assert.Throws<DirectoryNotFoundException>(
+            Assert.Throws<FileAccessException>(
                 () => dummyFileLoader.InsertAt("a/b", "b"));  
         } 
     }
