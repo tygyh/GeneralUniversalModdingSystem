@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using GeneralUniversalModdingSystem;
@@ -17,9 +18,12 @@ namespace GUMSTests
             Task.Run(() => ConvertFileToBytes(TraverseFiles(path)));
 
         private object TraverseFiles(string path)
+            => TraverseFilesByParts(path.Split('/'));
+        
+        private object TraverseFilesByParts(IEnumerable<string> parts)
         {
             object current = Files;
-            foreach (string part in path.Split('/'))
+            foreach (string part in parts)
                 current = ((DummyDirectory)current)[part];
             return current;
         }
