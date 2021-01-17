@@ -17,9 +17,8 @@ namespace GUMSTests
         public Task<byte[]> LoadAt(string path) =>
             Task.Run(() => ConvertFileToBytes(TraverseFiles(path)));
 
-        private object TraverseFiles(string path)
-            => TraverseFilesByParts(path.Split('/'));
-        
+        private object TraverseFiles(string path) => TraverseFilesByParts(path.Split('/'));
+
         private object TraverseFilesByParts(IEnumerable<string> parts)
         {
             object current = Files;
@@ -29,13 +28,10 @@ namespace GUMSTests
         }
 
         public Task<string> LoadStringAt(string path) =>
-            Task.Run(
-                () => ConvertFileToString(TraverseFiles(path)));
+            Task.Run(() => ConvertFileToString(TraverseFiles(path)));
 
         private static byte[] ConvertFileToBytes(object fileContents) =>
-            fileContents is string s ?
-                Encoding.Default.GetBytes(s) :
-                fileContents as byte[];
+            fileContents is string s ? Encoding.Default.GetBytes(s) : fileContents as byte[];
 
         private static string ConvertFileToString(object fileContents) =>
             fileContents is byte[] bytes ?
@@ -48,7 +44,7 @@ namespace GUMSTests
             string[] segments = path.Split('/');
             ArraySegment<string> dictParts = new ArraySegment<string>(
                 segments, 0, segments.Length - 1);
-            
+
             foreach (string part in dictParts)
                 if (current is DummyDirectory dir)
                 {
